@@ -17,10 +17,10 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: Panoramic_development
+  database: panoramic
   pool: 5
-  username: Panoramic
-  password:
+  port: 5432
+  host: localhost
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -46,15 +46,15 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: Panoramic_test
+  database: panoramic
   pool: 5
-  username: Panoramic
-  password:
+  port: 5432
+  host: localhost
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: Panoramic_production
+  database: panoramic
   pool: 5
-  username: Panoramic
-  password:
+  port: 5432
+  host: localhost
