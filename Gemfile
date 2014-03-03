@@ -32,6 +32,9 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+#better console interaction as well as debugging
+gem 'pry-rails', group: :development
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
