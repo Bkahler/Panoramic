@@ -2,6 +2,9 @@
 <html>
 <head>
   <title>Panoramic</title>
+  <% if current_user %>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <% end %>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -10,6 +13,7 @@
   <% if current_user %>
     Logged in as <%= current_user.email %>
     <%= link_to "Log Out", logout_path%>
+    <div id="map3d" style="height: 400px; width: 600px;"></div>
   <% else %>
     <%= link_to "Sign Up", signup_path%> or
     <%= link_to "Log In", login_path %>
