@@ -2,25 +2,51 @@
 <html>
 <head>
   <title>Panoramic</title>
-  <% if current_user %>
-  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-  <% end %>
+    <!--Only loads google earth api once a user has logged in -->
+    <% if current_user %>
+      <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <% end %>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<header>
   <% if current_user %>
     Logged in as <%= current_user.email %>
     <%= link_to "Log Out", logout_path%>
-    <div id="map3d" style="height: 400px; width: 600px;"></div>
   <% else %>
-    <%= link_to "Sign Up", signup_path%> or
-    <%= link_to "Log In", login_path %>
+    <%= link_to "Sign Up", signup_path%>
+    <div>
+      <p>Log In</p>
+        <%= form_tag sessions_path do %>
+          <div class="field">
+            <%= label_tag :email %><br />
+            <%= text_field_tag :email, params[:email] %>
+          </div>
+          <div class="field">
+            <%= label_tag :password %><br />
+            <%= password_field_tag :password %>
+          </div>
+          <div class="field">
+            <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+            <%= label_tag :remember_me %>
+          </div>
+          <div class="actions"><%= submit_tag "Log In" %></div>
+        <% end %>
+    </div>
   <% end %>
+</header>
+
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, id: "flash_#{name}" %>
   <% end %>
+
+<!--Only displays google earth api once a user has logged in -->
+<% if current_user %>
+  <div id="map3d" style="height: 70%; width: 50%;"></div>
+<% end %>
 
 <%= yield %>
 
