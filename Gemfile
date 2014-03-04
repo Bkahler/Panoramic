@@ -34,9 +34,10 @@ end
 
 #better console interaction as well as debugging
 gem 'pry-rails', group: :development
+gem 'pry-debugger', group: :development
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
 # gem 'unicorn'
