@@ -18,7 +18,7 @@
     <%= link_to "Log Out", logout_path%>
   <% else %>
     <%= link_to "Sign Up", signup_path%>
-    <div>
+        <div>
       <p>Log In</p>
         <%= form_tag sessions_path do %>
           <div class="field">
@@ -35,7 +35,7 @@
           </div>
           <div class="actions"><%= submit_tag "Log In" %></div>
         <% end %>
-    </div>
+      </div>
   <% end %>
 </header>
 

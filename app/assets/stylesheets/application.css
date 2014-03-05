@@ -11,3 +11,11 @@
  *= require_self
  *= require_tree .
  */
+header{
+  display: inline-block;
+}
+
+ header{
+    font-size: 10px;
+    height: 20px;
+ }
