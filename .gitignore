@@ -14,3 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+#ignore ds store files
+app/.DS_Store
+app/models/.DS_Store
+
+.DS_Store
